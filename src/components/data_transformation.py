@@ -98,7 +98,7 @@ class DataTransformation:
             X_train_array = preprocessor_obj.fit_transform(input_train)
             X_test_array = preprocessor_obj.transform(input_test)
 
-            # f) Combine the input and trgte features
+            # f) Combine the input and target features
             print(X_test_array.shape)
             print(output_test.shape)
             train_array = np.c_[X_train_array, np.array(output_train)]

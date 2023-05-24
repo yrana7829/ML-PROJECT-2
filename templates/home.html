@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Form</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body style="background-color: #f1f1f1">
+    <div class="container">
+      <h1 class="text-center mt-4" style="color: #333">
+        Insurance Cost Predictor
+      </h1>
+
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form action="{{ url_for('predict') }}" method="post">
+            <fieldset>
+              <legend style="color: #555">Select all the fields</legend>
+
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="age" style="color: #555">Select your age</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="age"
+                      name="age"
+                      placeholder="Enter your age"
+                      min="0"
+                      max="100"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="sex" style="color: #555">Sex</label>
+                    <select class="form-control" id="sex" name="sex" required>
+                      <option value="" disabled selected>
+                        Select your gender
+                      </option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="bmi" style="color: #555">BMI</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="bmi"
+                      name="bmi"
+                      placeholder="Enter your BMI"
+                      min="0"
+                      max="100"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="children" style="color: #555"
+                      >Number of children</label
+                    >
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="children"
+                      name="children"
+                      placeholder="Number of children"
+                      min="0"
+                      max="10"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="smoker" style="color: #555">Smoker</label>
+                    <select
+                      class="form-control"
+                      id="smoker"
+                      name="smoker"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Select if you smoke
+                      </option>
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="region" style="color: #555">Region</label>
+                    <select
+                      class="form-control"
+                      id="region"
+                      name="region"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Which region do you belong to
+                      </option>
+                      <option value="northeast">Northeast</option>
+                      <option value="southeast">Southeast</option>
+                      <option value="northwest">Northwest</option>
+                      <option value="southwest">Southwest</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                style="background-color: #007bff"
+              >
+                Predict your insurance cost
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="border rounded p-3 mt-4" style="background-color: #fff">
+            <h2 class="text-center" style="color: #007bff">
+              The predicted insurance cost is {{ results }}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS (optional, if needed) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
